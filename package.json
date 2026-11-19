@@ -1,0 +1,29 @@
+{
+  "name": "telegram-slack-bridge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Two-way Telegram and Slack relay for Cloudflare Workers",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "test": "node --test",
+    "build": "wrangler deploy --dry-run --outdir dist",
+    "dev": "wrangler dev --local",
+    "deploy": "wrangler deploy",
+    "login": "node scripts/login.mjs",
+    "webhook": "node scripts/webhook.mjs",
+    "test:worker": "npm run build && node scripts/smoke.mjs"
+  },
+  "dependencies": {
+    "@mtcute/core": "0.32.3",
+    "@mtcute/wasm": "0.32.0",
+    "@mtcute/web": "0.32.3",
+    "long": "5.3.2"
+  },
+  "devDependencies": {
+    "miniflare": "5.20261113.0-beta",
+    "wrangler": "4.162.0"
+  }
+}
